@@ -1,4 +1,4 @@
-package com.zehao.util;
+﻿package com.zehao.util;
 
 import org.apache.log4j.Logger;
 import org.aspectj.lang.JoinPoint;
@@ -22,12 +22,7 @@ public class Log {
 	public Object doAround(ProceedingJoinPoint pjp) throws Throwable {
 		Object result = null;
 		try {
-			logStr = pjp.getTarget().getClass().getName() + " 类的 " + pjp.getSignature().getName()
-					+ " 方法开始执行 ***Start***";
-			logger.info(logStr);
 			result = pjp.proceed();
-			logStr = pjp.getTarget().getClass().getName() + " 类的 " + pjp.getSignature().getName() + " 方法执行结束 ***End***";
-			logger.info(logStr);
 		} catch (Exception e) {
 			logStr = "方法：" + pjp.getTarget().getClass() + "." + pjp.getSignature().getName() + "()  ";
 			logStr = logStr + "错误信息如下：[" + e + "]";

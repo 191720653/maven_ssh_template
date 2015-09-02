@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
 	xmlns:context="http://www.springframework.org/schema/context"
@@ -24,8 +24,8 @@ http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
 			<!-- 对哪些方法进行日志记录, 此处屏蔽action内的set get方法 -->
 			<aop:pointcut id="aopLog"
 				expression="(execution(* com.zehao.*.*.*.*(..)) ) and (!execution(* com.zehao.action.*.set*(..)) ) and (!execution(* com.zehao.action.*.get*(..)) )" />
-			<!-- <aop:before pointcut-ref="aopLog" method="doBefore" />
-			<aop:after pointcut-ref="aopLog" method="doAfter" /> -->
+			<aop:before pointcut-ref="aopLog" method="doBefore" />
+			<aop:after pointcut-ref="aopLog" method="doAfter" />
 			<aop:around pointcut-ref="aopLog" method="doAround" />
 		</aop:aspect>
 	</aop:config>
